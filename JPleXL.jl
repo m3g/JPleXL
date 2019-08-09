@@ -1,4 +1,4 @@
-module XLComplex
+module JPleXL
 
   #
   # Data structures
