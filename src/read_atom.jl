@@ -32,12 +32,12 @@ function read_atom(record :: String;
       atom.y = parse(Float64,record[39:46])
       atom.z = parse(Float64,record[47:54])
       try
-        atom.b = parse(Flaot64,record[61:66])
+        atom.b = parse(Float64,record[61:66])
       catch
         atom.b = 0.
       end
       try 
-        atom.occup = parse(Flaot64,record[56:60])
+        atom.occup = parse(Float64,record[56:60])
       catch
         atom.occup = 0.
       end
