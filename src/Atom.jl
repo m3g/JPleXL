@@ -25,7 +25,9 @@ ReadAtom() = empty_struct(ReadAtom)
 @eval struct Atom
   $AtomData
 end
+
+# Initialize mutable from immutable and vice-versa
+
 Atom( atom :: ReadAtom ) = Atom([ getfield(atom,i) for i in 1:nfields(atom) ]...)
-
-
+ReadAtom( atom :: Atom ) = ReadAtom([ getfield(atom,i) for i in 1:nfields(atom) ]... )
 

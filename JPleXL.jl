@@ -1,7 +1,7 @@
 
-using Printf
-
 module JPleXL
+
+  using Printf
 
   #
   # Data structures
