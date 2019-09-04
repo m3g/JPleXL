@@ -1,3 +1,6 @@
+
+using Printf
+
 module JPleXL
 
   #
@@ -17,6 +20,7 @@ module JPleXL
 
   include("./src/check_mmCIF.jl")
   include("./src/read_atom.jl")
+  include("./src/write_atom.jl")
   include("./src/readPDB.jl")
   export readPDB
 
