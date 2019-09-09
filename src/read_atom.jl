@@ -2,6 +2,16 @@
 # Function that reads atom information from PDB or mmCIF files
 #
 
+function alternate_conformation( name :: String )
+  if length(name) == 4
+    if name[1:1] == A
+      return name[2:4]
+    else 
+      return Nothing
+    end
+  end
+end
+
 function read_atom(record :: String; 
                    mmCIF :: Bool = false, 
                    mmCIF_fields :: Indexes_mmCIF_fields = empty_struct(Indexes_mmCIF_fields))
@@ -19,7 +29,12 @@ function read_atom(record :: String;
       atom.name = strip(record[13:16])
 
       atom.resname = strip(record[17:21])
-      #alternate_conformation!(atom.resname)
+      resname = alternate_conformation(atom.resname)
+      if resname == Nothing
+        return Nothing
+      else
+        atom.resname = name
+      end
 
       atom.chain = strip(record[22:22])
       if atom.chain == " "
@@ -48,7 +63,12 @@ function read_atom(record :: String;
       atom.index = parse(Int64,mmcif_data[mmCIF_fields.index])
       atom.name = mmcif_data[mmCIF_fields.name]
       atom.resname = mmcif_data[mmCIF_fields.resname]
-      #alternate_conformation!(atom.resname)
+      resname = alternate_conformation(atom.resname)
+      if resname == Nothing
+        return Nothing
+      else
+        atom.resname = name
+      end
       atom.chain = mmcif_data[mmCIF_fields.chain]
       try
         atom.resnum = parse(Int64,mmcif_data[mmCIF_fields.resnum])
