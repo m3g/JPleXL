@@ -4,11 +4,13 @@
 
 function alternate_conformation( name :: String )
   if length(name) == 4
-    if name[1:1] == A
+    if name[1:1] == "A"
       return name[2:4]
     else 
       return Nothing
     end
+  else
+    return name
   end
 end
 
@@ -33,7 +35,7 @@ function read_atom(record :: String;
       if resname == Nothing
         return Nothing
       else
-        atom.resname = name
+        atom.resname = resname
       end
 
       atom.chain = strip(record[22:22])
@@ -67,7 +69,7 @@ function read_atom(record :: String;
       if resname == Nothing
         return Nothing
       else
-        atom.resname = name
+        atom.resname = resname
       end
       atom.chain = mmcif_data[mmCIF_fields.chain]
       try
