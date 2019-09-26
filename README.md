@@ -2,8 +2,8 @@
 
 Install with
 
-Pkg.add(PackageSpec(url="https://github.com/mcubeg/JPleXL"))
+`Pkg.add(PackageSpec(url="https://github.com/mcubeg/JPleXL"))`
 
 Use with
 
-using JPleXL
+`using JPleXL`
