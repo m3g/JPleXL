@@ -1,0 +1,7 @@
+name = "JPleXL"
+uuid = "a79ff917-910a-48bd-b7f4-c8dea3aee6d8"
+authors = ["Leandro Martinez <leandro@iqm.unicamp.br>"]
+version = "0.1.0"
+
+[deps]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
