@@ -28,10 +28,10 @@ function readPDB(file :: String; chain :: String = "0", model :: Int64 = 0)
      end
      atom = read_atom(line, mmCIF = mmCIF, mmCIF_fields = mmCIF_fields)
      if atom != Nothing
-       if ( atom.chain == chain & atom.model == model ) ||
-          ( atom.chain == chain & model == 0 ) ||
-          ( chain == "0" & atom.model == model ) ||
-          ( chain == "0" & model == 0 )
+       if ( atom.chain == chain && atom.model == model ) ||
+          ( atom.chain == chain && model == 0 ) ||
+          ( chain == "0" && atom.model == model ) ||
+          ( chain == "0" && model == 0 )
          natoms = natoms + 1
        end
      end 
@@ -55,10 +55,10 @@ function readPDB(file :: String; chain :: String = "0", model :: Int64 = 0)
      atom = read_atom(line, mmCIF = mmCIF, mmCIF_fields = mmCIF_fields)
      if atom != Nothing
        atom.model = imodel
-       if ( atom.chain == chain & atom.model == model ) ||
-          ( atom.chain == chain & model == 0 ) ||
-          ( chain == "0" & atom.model == model ) ||
-          ( chain == "0" & model == 0 )
+       if ( atom.chain == chain && atom.model == model ) ||
+          ( atom.chain == chain && model == 0 ) ||
+          ( chain == "0" && atom.model == model ) ||
+          ( chain == "0" && model == 0 )
          iatom = iatom + 1 
          atoms[iatom] = Atom(atom)
        end
